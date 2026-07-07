@@ -247,10 +247,33 @@ function sortearTimes(){
 
 
 
-    let lista = [...jogadores];
+    let jovens = jogadores.filter(function(jogador){
+
+        return jogador.categoria === "Jovem";
+
+    });
 
 
-    lista.sort(function(a,b){
+
+    let veteranos = jogadores.filter(function(jogador){
+
+        return jogador.categoria === "Veterano";
+
+    });
+
+
+
+
+    // Ordena pelo nível
+
+    jovens.sort(function(a,b){
+
+        return b.nivel - a.nivel;
+
+    });
+
+
+    veteranos.sort(function(a,b){
 
         return b.nivel - a.nivel;
 
@@ -258,9 +281,15 @@ function sortearTimes(){
 
 
 
+
+
     let times=[];
 
     let pontos=[];
+
+    let qtdJovens=[];
+
+    let qtdVeteranos=[];
 
 
 
@@ -270,43 +299,123 @@ function sortearTimes(){
 
         pontos.push(0);
 
+        qtdJovens.push(0);
+
+        qtdVeteranos.push(0);
+
     }
 
 
 
 
-    lista.forEach(function(jogador){
+
+    // Função para colocar jogador no time mais equilibrado
+
+    function distribuir(lista){
 
 
-        let menor=0;
+        lista.forEach(function(jogador){
 
 
-        for(let i=1;i<quantidadeTimes;i++){
 
-            if(pontos[i] < pontos[menor]){
+            let escolhido=0;
 
-                menor=i;
+
+
+            for(let i=1;i<quantidadeTimes;i++){
+
+
+                if(pontos[i] < pontos[escolhido]){
+
+                    escolhido=i;
+
+                }
 
             }
 
-        }
+
+
+            if(times[escolhido].length < jogadoresPorTime){
+
+
+                times[escolhido].push(jogador);
+
+
+                pontos[escolhido]+=jogador.nivel;
 
 
 
-        if(times[menor].length < jogadoresPorTime){
+                if(jogador.categoria === "Jovem"){
 
-            times[menor].push(jogador);
+                    qtdJovens[escolhido]++;
 
-            pontos[menor]+=jogador.nivel;
+                }
+                else{
 
-        }
+                    qtdVeteranos[escolhido]++;
+
+                }
+
+            }
+
+
+        });
+
+
+    }
+
+
+
+
+    // Primeiro distribui veteranos
+
+    distribuir(veteranos);
+
+
+
+    // Depois distribui jovens
+
+    distribuir(jovens);
+
+
+
+
+
+    // Jogadores que ficaram fora viram reservas
+
+    let usados=[];
+
+
+    times.forEach(function(time){
+
+
+        time.forEach(function(jogador){
+
+
+            usados.push(jogador);
+
+
+        });
 
 
     });
 
 
 
-    mostrarResultado(times,pontos);
+    let reservas=jogadores.filter(function(jogador){
+
+
+        return !usados.includes(jogador);
+
+
+    });
+
+
+
+
+
+    mostrarResultado(times,pontos,qtdJovens,qtdVeteranos,reservas);
+
 
 
 }
@@ -319,7 +428,7 @@ function sortearTimes(){
 // RESULTADO
 // ==========================
 
-function mostrarResultado(times,pontos){
+function mostrarResultado(times,pontos,qtdJovens,qtdVeteranos,reservas){
 
 
     let resultado =
@@ -337,9 +446,12 @@ function mostrarResultado(times,pontos){
 
 
         titulo.innerHTML =
-        "Time "+(index+1)+
-        " - Pontuação: "+
-        pontos[index];
+        "⚽ Time "+(index+1)+
+        "<br>" +
+        "Pontuação: "+pontos[index]+
+        "<br>" +
+        "Veteranos: "+qtdVeteranos[index]+
+        " | Jovens: "+qtdJovens[index];
 
 
         resultado.appendChild(titulo);
