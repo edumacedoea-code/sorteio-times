@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sorteio de Times</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="manifest" href="manifest.json">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h1>⚽ Sorteio de Times</h1>
+
+    <p>Organizador de partidas</p>
+
+</header>
+
+
+
+<main>
+
+
+
+<!-- CADASTRO -->
+
+<section class="card">
+
+<h2>Cadastro de jogadores</h2>
+
+<input type="hidden" id="indiceEdicao">
+
+
+<label>Nome:</label>
+
+<input type="text" id="nomeJogador">
+
+
+
+<label>Categoria:</label>
+
+<select id="categoriaJogador">
+
+<option value="Jovem">Jovem</option>
+
+<option value="Veterano">Veterano</option>
+
+</select>
+
+
+
+<label>Nível:</label>
+
+<select id="nivelJogador">
+
+<option value="1">⭐</option>
+
+<option value="2">⭐⭐</option>
+
+<option value="3">⭐⭐⭐</option>
+
+<option value="4">⭐⭐⭐⭐</option>
+
+<option value="5">⭐⭐⭐⭐⭐</option>
+
+</select>
+
+
+
+<button onclick="adicionarJogador()" id="botaoSalvar">
+
+Adicionar jogador
+
+</button>
+
+
+</section>
+
+
+
+
+<!-- LISTA DE JOGADORES -->
+
+<section class="card">
+
+
+<h2>
+Jogadores cadastrados 
+(<span id="contadorJogadores">0</span>)
+</h2>
+
+
+<ul id="listaJogadores"></ul>
+
+
+<button onclick="limparJogadores()">
+
+Limpar jogadores
+
+</button>
+
+
+</section>
+
+
+
+
+
+<!-- SORTEIO -->
+
+<section class="card">
+
+
+<h2>Configuração do sorteio</h2>
+
+
+<label>
+
+Quantidade de times:
+
+</label>
+
+
+<input 
+type="number"
+id="quantidadeTimes"
+value="2">
+
+
+
+<label>
+
+Jogadores por time:
+
+</label>
+
+
+<input 
+type="number"
+id="jogadoresPorTime"
+value="8">
+
+
+
+<button onclick="sortearTimes()">
+
+Sortear times
+
+</button>
+
+
+</section>
+
+
+
+
+
+
+<!-- RESULTADO -->
+
+
+<section class="card">
+
+
+<h2>Resultado</h2>
+
+
+<div id="resultado"></div>
+
+
+</section>
+
+
+
+
+
+</main>
+
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>

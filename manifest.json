@@ -1,0 +1,9 @@
+{
+    "name": "Sorteio de Times",
+    "short_name": "Times",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#087830",
+    "theme_color": "#087830",
+    "description": "Aplicativo para organizar sorteios de times de futebol"
+}

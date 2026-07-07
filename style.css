@@ -1,0 +1,266 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+body{
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background:#f4f6f8;
+
+    color:#222;
+
+}
+
+
+
+header{
+
+    background:#087830;
+
+    color:white;
+
+    padding:30px 15px;
+
+    text-align:center;
+
+}
+
+
+
+header h1{
+
+    font-size:28px;
+
+    margin-bottom:10px;
+
+}
+
+
+
+main{
+
+    width:95%;
+
+    max-width:700px;
+
+    margin:20px auto;
+
+}
+
+
+
+.card{
+
+    background:white;
+
+    padding:20px;
+
+    margin-bottom:20px;
+
+    border-radius:15px;
+
+    box-shadow:0 3px 10px rgba(0,0,0,0.15);
+
+}
+
+
+
+h2{
+
+    margin-bottom:15px;
+
+    color:#087830;
+
+}
+
+
+
+label{
+
+    display:block;
+
+    margin-top:15px;
+
+    font-weight:bold;
+
+}
+
+
+
+input,
+select{
+
+    width:100%;
+
+    padding:12px;
+
+    margin-top:5px;
+
+    border-radius:8px;
+
+    border:1px solid #ccc;
+
+    font-size:16px;
+
+}
+
+
+
+button{
+
+    width:100%;
+
+    margin-top:20px;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#087830;
+
+    color:white;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+}
+
+
+/* Botões pequenos da lista de jogadores */
+
+.acoes{
+
+    display:flex;
+
+    gap:8px;
+
+    margin-top:10px;
+
+}
+
+
+
+.acoes button{
+
+    width:auto;
+
+    margin-top:0;
+
+    padding:5px 10px;
+
+    font-size:14px;
+
+}
+
+
+
+.btn-editar{
+
+    background:#1d70b8;
+
+}
+
+
+
+.btn-remover{
+
+    background:#c62828;
+
+}
+
+
+
+button:hover{
+
+    background:#065c25;
+
+}
+
+
+
+li{
+
+    list-style:none;
+
+    background:#f1f1f1;
+
+    margin-top:8px;
+
+    padding:12px;
+
+    border-radius:8px;
+
+}
+
+
+
+#resultado h3{
+
+    margin-top:20px;
+
+    color:#087830;
+
+}
+
+
+
+@media(max-width:500px){
+
+
+    header h1{
+
+        font-size:24px;
+
+    }
+
+
+}
+
+
+.acoes{
+
+    display:flex;
+
+    gap:8px;
+
+    margin-top:8px;
+
+}
+
+
+.acoes button{
+
+    width:auto;
+
+    padding:6px 10px;
+
+    margin:0;
+
+    font-size:14px;
+
+    border-radius:6px;
+
+}
+
+
+
+.btn-editar{
+
+    background:#1d70b8;
+
+}
+
+
+
+.btn-remover{
+
+    background:#c62828;
+
+}
